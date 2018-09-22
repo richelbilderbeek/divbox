@@ -68,6 +68,8 @@ char const *ParseString(FILE *in)
 BoxWithDivs *Parse(FILE *in)
 {
 	double w=200,h=50,l=300,dh=45, thickness=3, toothWidth=6, taper=.01;
+	double laser_cutter_height = 700;
+	double laser_cutter_width = 400;
 	char const *name = "divbox.eps";
 	BoxWithDivs *ret = NULL;
 	while (true)
@@ -123,7 +125,7 @@ BoxWithDivs *Parse(FILE *in)
 			case 'D': // div
 				if (!ret)
 				{
-					ret = new BoxWithDivs(name, w, l, h, dh, thickness, toothWidth, taper);
+					ret = new BoxWithDivs(name, w, l, h, dh, thickness, toothWidth, taper, laser_cutter_width, laser_cutter_height);
 				}
 				{
 					double fb = ParseNumber(in, "Expected Div location\n");
@@ -134,7 +136,7 @@ BoxWithDivs *Parse(FILE *in)
 			case 'V': // div
 				if (!ret)
 				{
-					ret = new BoxWithDivs(name, w, l, h, dh, thickness, toothWidth, taper);
+					ret = new BoxWithDivs(name, w, l, h, dh, thickness, toothWidth, taper, laser_cutter_width, laser_cutter_height);
 				}
 				{
 					double fr = ParseNumber(in, "Expected Div location\n");
@@ -157,7 +159,7 @@ BoxWithDivs *Parse(FILE *in)
 			case 'X':
 				if (!ret)
 				{
-					ret = new BoxWithDivs(name, w, l, h, dh, thickness, toothWidth, taper);
+					ret = new BoxWithDivs(name, w, l, h, dh, thickness, toothWidth, taper, laser_cutter_width, laser_cutter_height);
 				}
 				return ret;
 				break;
@@ -168,7 +170,7 @@ BoxWithDivs *Parse(FILE *in)
 	}
 	if (!ret)
 	{
-		ret = new BoxWithDivs(name, w, l, h, dh, thickness, toothWidth, taper);
+		ret = new BoxWithDivs(name, w, l, h, dh, thickness, toothWidth, taper, laser_cutter_width, laser_cutter_height);
 	}
 	return ret;
 }

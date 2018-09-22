@@ -5,13 +5,17 @@
 #include <math.h>
 #include <stdlib.h>
 
-#define LASERCUTTERW 700
-#define LASERCUTTERH 400
+//#define LASERCUTTERW 700
+//#define LASERCUTTERH 400
 
 class LaserCutterDrawing
 {
     public:
-        LaserCutterDrawing(char const *name);
+        LaserCutterDrawing(
+            char const *name,
+            const double laser_cutter_width,
+            const double laser_cutter_height
+        );
         ~LaserCutterDrawing();
 
         cairo_t *m_context;
@@ -25,7 +29,6 @@ class LaserCutterDrawing
 		int GetNumTeeth(double len, double toothWidth, double *realTW = NULL);
     private:
         cairo_surface_t *m_surface;
-        
 };
 
 

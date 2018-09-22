@@ -179,9 +179,22 @@ class Div
 class BoxWithDivs
 {
 	public:
-		BoxWithDivs(char const *name, double width, double length, double height, double divHeight, double woodThickness, double toothWidth, double taper)
-			: m_d(name)
-		{
+	BoxWithDivs(
+	    char const *name,
+	    double width,
+	    double length,
+	    double height,
+	    double divHeight,
+	    double woodThickness,
+	    double toothWidth,
+	    double taper,
+	    const double laser_cutter_width,
+	    const double laser_cutter_height
+	)
+	    : m_d(name, laser_cutter_width, laser_cutter_height),
+	      m_laser_cutter_height{laser_cutter_height},
+	      m_laser_cutter_width{laser_cutter_width}
+{
 			m_divs = 0;
 			m_curDivForVDivs = m_firstVDivs = new Div(NULL, 0);
 			m_width = width;
@@ -201,12 +214,12 @@ class BoxWithDivs
 			}
 			m_sizeUsedV = (m_width + 2 * m_height - 2 * m_woodThickness);
 			m_sizeUsedH = (m_length + m_width + 1.5 * m_toothWidth );
-			double remainsOnSide = LASERCUTTERW - m_sizeUsedH;
-			int rowsOnSide =  (int)floor(remainsOnSide / m_divHeight);
+	    const double remainsOnSide = m_laser_cutter_width - m_sizeUsedH;
+	    const int rowsOnSide =  (int)floor(remainsOnSide / m_divHeight);
 
-			int rowsOnTop = (int)floor((LASERCUTTERH -  m_sizeUsedV )/ divHeight);
-			double sideH = rowsOnSide > rowsOnTop ? LASERCUTTERH : m_sizeUsedV;
-			double topW = rowsOnSide > rowsOnTop ? m_sizeUsedH : LASERCUTTERW;
+            int rowsOnTop = (int)floor((m_laser_cutter_height -  m_sizeUsedV )/ divHeight);
+            double sideH = rowsOnSide > rowsOnTop ? m_laser_cutter_height : m_sizeUsedV;
+            double topW = rowsOnSide > rowsOnTop ? m_sizeUsedH : m_laser_cutter_width;
 
 			for (int i = 0; i < rowsOnSide; i++)
 			{
@@ -219,10 +232,16 @@ class BoxWithDivs
 			}
 
 
-			int rows = (int)floor(LASERCUTTERH/ divHeight);
+	    int rows = (int)floor(m_laser_cutter_height / divHeight);
 			for (int i = 0; i < rows; i++)
 			{
-				m_spans.AppendSpan(1, 0, LASERCUTTERH - (i+1)* m_divHeight, 0, LASERCUTTERW);
+		m_spans.AppendSpan(
+		    1,
+		    0,
+		    m_laser_cutter_height - (i+1)* m_divHeight,
+		    0,
+		    m_laser_cutter_width
+		);
 			}
 
 		}
@@ -249,7 +268,9 @@ class BoxWithDivs
 		Div *m_curDivForVDivs;
 		double m_width, m_height, m_length, m_divHeight, m_woodThickness, m_toothWidth, m_taper;
 		LaserCutterDrawing m_d;
-		void BaseBox();
+	const double m_laser_cutter_height;
+	const double m_laser_cutter_width;
+	void BaseBox();
 		void AddDivHoles(double fromBottom);
 		void AddVDivHoles(double fromLeft, int top, int bottom);
 		void DrawVDivHoles(int page, double fromLeft, double ox, double oy,  double angle);

@@ -102,11 +102,11 @@ void LaserCutterDrawing::HolesLine(double angle, double len, double toothWidth, 
 		cairo_rel_line_to(m_context, 0, thickness);
 		cairo_rel_line_to(m_context, -width, 0);
 		cairo_rel_line_to(m_context, 0, -thickness);
-                if (i < num)
-                    cairo_rel_move_to(m_context, 2* width , 0);
-                else
-                    cairo_rel_move_to(m_context, width , 0);
-                
+		if (i < num)
+		    cairo_rel_move_to(m_context, 2* width , 0);
+		else
+		    cairo_rel_move_to(m_context, width , 0);
+
 	}
 	cairo_rotate(m_context, -angle);
 
@@ -114,12 +114,20 @@ void LaserCutterDrawing::HolesLine(double angle, double len, double toothWidth, 
 }
 
 
-LaserCutterDrawing::LaserCutterDrawing(char const *name)
+LaserCutterDrawing::LaserCutterDrawing(
+    char const *name,
+    const double laser_cutter_width,
+    const double laser_cutter_height
+)
 {
-	m_surface = cairo_ps_surface_create(name, mm2points(LASERCUTTERW), mm2points(LASERCUTTERH));
-	cairo_ps_surface_set_eps(m_surface, true);
+        m_surface = cairo_ps_surface_create(
+                name,
+                mm2points(laser_cutter_width),
+                mm2points(laser_cutter_height)
+        );
+        cairo_ps_surface_set_eps(m_surface, true);
 
-	m_context = cairo_create(m_surface);
+        m_context = cairo_create(m_surface);
 
 	cairo_scale(m_context, mm2points(1), -mm2points(1));
 	cairo_translate(m_context, 0, -400);

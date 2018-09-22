@@ -215,7 +215,7 @@ double BoxWithDivs::GetVDivSize(int top, int bottom)
 
 void BoxWithDivs::DrawDivsInGap(int nr)
 {
-	DrawDivsHor(nr, m_length, m_height, LASERCUTTERW - m_length, m_width - 2 * m_woodThickness);
+    DrawDivsHor(nr, m_length, m_height, m_laser_cutter_width - m_length, m_width - 2 * m_woodThickness);
 }
 
 void dumpdivs(Div *s)
