@@ -1,0 +1,13 @@
+#testbox
+B 200 350 40 35 #  width length height divheight
+T 6 6 .03 # thickness toothwidth taper
+N test.eps # name
+V 50  #vdiv 50mm from right
+D 100 #div 100 mm from bottom
+V 100
+D 200
+V 150
+V 60
+D 300
+V 50
+X
