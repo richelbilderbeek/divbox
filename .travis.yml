@@ -18,7 +18,7 @@ install:
 
 script: 
   - qmake -qt=qt5 divbox.pro
-  - make debug
+  - make
   - ./divbox --help
   #- qmake -qt=qt5 divbox.pro
   #- make -s debug
