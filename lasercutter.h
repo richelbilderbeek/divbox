@@ -1,7 +1,7 @@
 #ifndef __LASERCUTTER_H__
 #define __LASERCUTTER_H__
 
-#include <cairo.h>
+#include <cairo/cairo.h>
 #include <math.h>
 #include <stdlib.h>
 

@@ -1,5 +1,5 @@
-#include <cairo.h>
-#include <cairo-ps.h>
+#include <cairo/cairo.h>
+#include <cairo/cairo-ps.h>
 #include <math.h>
 
 #include "lasercutter.h"

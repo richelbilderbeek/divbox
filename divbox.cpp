@@ -223,7 +223,7 @@ void dumpdivs(Div *s)
 	printf("dump: ");
 	for (; s ; s = s->m_next)
 	{
-		printf("[%p %f %p] ", s, s->m_fromBottom, s->m_next);
+        printf("[%p %f %p] ", (void*)s, s->m_fromBottom, (void*)s->m_next);
 	}
 	printf("\n");
 }
@@ -421,7 +421,7 @@ void BoxWithDivs::AddVDivHoles(double fromLeft, int top, int bottom)
 	double ox,oy;
 	double angle;
 	int page = 0;
-	double topFromBottom = 0, bottomFromBottom = 0;
+    double topFromBottom = 0; //, bottomFromBottom = 0;
 	if (top < 0)
 	{
 		ox = m_length - m_woodThickness;
@@ -444,7 +444,7 @@ void BoxWithDivs::AddVDivHoles(double fromLeft, int top, int bottom)
 		ox = m_length + m_width - m_woodThickness;
 		oy = m_height;
 		angle = M_PI;
-		bottomFromBottom = m_length - m_woodThickness/2;
+        //bottomFromBottom = m_length - m_woodThickness/2;
 	}
 	else
 	{
@@ -452,7 +452,7 @@ void BoxWithDivs::AddVDivHoles(double fromLeft, int top, int bottom)
 		oy = m_divY[bottom];
 		angle = m_divAngle[bottom];
 		page = m_divPage[bottom];
-		bottomFromBottom = GetDivPos(bottom);
+        //bottomFromBottom = GetDivPos(bottom);
 	}
 
 	DrawVDivHoles(page, fromLeft, ox, oy, angle);
@@ -469,7 +469,7 @@ void SpanManager::RenderLayout(BoxWithDivs *box)
 //	printf("renderlayout: <span %f> ", cur->m_end);
 	int nrSpans = 0;
 	double curPos = 0;
-	bool fits = true;
+    //bool fits = true;
 	for (int i = 0; i < m_nrObjects; i++)
 	{
 		while (cur && cur->m_end - curPos < m_objs[i]->m_size)
@@ -482,7 +482,7 @@ void SpanManager::RenderLayout(BoxWithDivs *box)
 		if (!cur)
 		{
 			nrSpans +=1000;
-			fits = false;
+            //fits = false;
 			continue;
 		}
 
