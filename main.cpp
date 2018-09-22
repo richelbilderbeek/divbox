@@ -1,6 +1,7 @@
 #include "divbox.h"
 #include <ctype.h>
 #include <string.h>
+#include <iostream>
 
 bool ParseNumber(FILE *in, double *r)
 {
@@ -105,6 +106,14 @@ BoxWithDivs *Parse(FILE *in)
             }
           printf("Dimensions W=%f L=%f H=%f DivH=%f\n", w,l,h,dh);
           break;
+        case 'L': // laser cutter dimensions
+          laser_cutter_width = ParseNumber(in, "Laser cutter width\n");
+          laser_cutter_height = ParseNumber(in, "Laser cutter height\n");
+          std::cout << "Dimensions laser cutter "
+            << "W=" << laser_cutter_width << ' '
+            << "H=" << laser_cutter_height
+            << '\n';
+          break;
         case 'T':
           if (ret)
             {
@@ -183,6 +192,7 @@ void help()
         "Syntax of the input.\n"
         "  #                     Lines starting with # are ignored.\n"
         "  B <w> <l> <h> [dh]    Specify box dimensions, Width, Length, Height   and optionally the height of the divisions (if omitted dh will equal h).\n"
+        "  L <w> <h>             Specify laser cutter dimensions, Width, Height\n"
         "  N <name.eps>          Set the name of the outputfile.\n"
         "  T <t> [tw] [taper]    Set the thickness of the material, and optionally the size of the teeth and the amount of tapering  of the teeth.\n"
         "  D <pos>               Add a horizontal division at location <pos> along the <l> side of the box.\n"

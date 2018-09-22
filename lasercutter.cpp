@@ -132,15 +132,8 @@ LaserCutterDrawing::LaserCutterDrawing(
   cairo_scale(m_context, mm2points(1), -mm2points(1));
   cairo_translate(m_context, 0, -400);
   cairo_set_line_width(m_context, mm2points(.1));
-
-  //	cairo_set_source_rgb(m_context, 1,1,1);
-  //	cairo_rectangle(m_context, 0,0, LASERCUTTERW, LASERCUTTERH);
-  //	cairo_stroke(m_context);
-
   cairo_set_source_rgb(m_context, 1.0,0,0);
-
   cairo_move_to(m_context, 0, 0);
-
 }
 
 
@@ -149,8 +142,5 @@ LaserCutterDrawing::~LaserCutterDrawing()
   cairo_stroke(m_context);
   cairo_show_page(m_context);
   cairo_destroy(m_context);
-
-
   cairo_surface_destroy(m_surface);
-
 }
