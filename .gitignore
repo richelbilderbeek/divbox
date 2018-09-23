@@ -36,3 +36,4 @@ Makefile
 divbox_plugin_import.cpp
 Makefile.Debug
 Makefile.Release
+*.zip

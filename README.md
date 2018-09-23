@@ -9,7 +9,11 @@ General purpose box with divisions, written by Martijn Versteeg. Adaptations by 
 
 ![](test.png)
 
-## Compiling:
+## Download
+
+ * Windows executable: [here](http://www.richelbilderbeek.nl/divbox.zip)
+
+## Compiling
 
 You need the cairo libs (libcairo2-dev package on ubuntu 10.10).
 
