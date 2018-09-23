@@ -12,6 +12,7 @@ General purpose box with divisions, written by Martijn Versteeg. Adaptations by 
 ## Download
 
  * Windows executable: [here](http://www.richelbilderbeek.nl/divbox.zip)
+ * Linux executable: [here](http://www.richelbilderbeek.nl/divbox_linux.zip)
 
 ## Compiling
 
