@@ -31,3 +31,9 @@
 *.out
 *.app
 *.pro.user
+Makefile
+.qmake.stash
+divbox_plugin_import.cpp
+Makefile.Debug
+Makefile.Release
+*.zip

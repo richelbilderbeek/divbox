@@ -5,11 +5,16 @@ Branch|[![Travis CI logo](pics/TravisCI.png)](https://travis-ci.org)|[![Codecov 
 `master`|[![Build Status](https://travis-ci.org/richelbilderbeek/divbox.svg?branch=master)](https://travis-ci.org/richelbilderbeek/divbox) | [![codecov.io](https://codecov.io/github/richelbilderbeek/divbox/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/divbox?branch=master)
 `develop`|[![Build Status](https://travis-ci.org/richelbilderbeek/divbox.svg?branch=develop)](https://travis-ci.org/richelbilderbeek/divbox) | [![codecov.io](https://codecov.io/github/richelbilderbeek/divbox/coverage.svg?branch=develop)](https://codecov.io/github/richelbilderbeek/divbox?branch=develop)
 
-General purpose box with divisions, written by Martijn Versteeg.
+General purpose box with divisions, written by Martijn Versteeg. Adaptations by Richel Bilderbeek.
 
 ![](test.png)
 
-## Compiling:
+## Download
+
+ * Windows executable: [here](http://www.richelbilderbeek.nl/divbox.zip)
+ * Linux executable: [here](http://www.richelbilderbeek.nl/divbox_linux.zip)
+
+## Compiling
 
 You need the cairo libs (libcairo2-dev package on ubuntu 10.10).
 
