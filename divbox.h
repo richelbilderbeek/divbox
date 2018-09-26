@@ -192,8 +192,8 @@ public:
       const double laser_cutter_height
       )
     : m_d(name, laser_cutter_width, laser_cutter_height),
-      m_laser_cutter_height{laser_cutter_height},
-      m_laser_cutter_width{laser_cutter_width}
+      m_laser_cutter_height(laser_cutter_height),
+      m_laser_cutter_width(laser_cutter_width)
   {
     m_divs = 0;
     m_curDivForVDivs = m_firstVDivs = new Div(NULL, 0);
