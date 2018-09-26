@@ -204,7 +204,7 @@ void help()
 
 int main(int argc, char **argv)
 {
-  FILE *in = nullptr;
+  FILE *in = 0;
   if (argc == 1)
     {
       in = stdin;
