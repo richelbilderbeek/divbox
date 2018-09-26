@@ -2,14 +2,11 @@ language: cpp
 compiler: gcc
 
 install: 
-  # Qt5
-  - sudo apt-get install -qq libqt5webkit5-dev qtdeclarative5-dev libqt5svg5*
-  - export QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
   # Cairo
   - sudo apt install libcairo2-dev 
 
 script: 
-  - qmake -qt=qt5 divbox.pro
+  - qmake divbox.pro
   - make
   - ./divbox --help
   
