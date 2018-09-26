@@ -18,9 +18,12 @@ General purpose box with divisions, written by Martijn Versteeg. Adaptations by 
 
 You need the cairo libs (libcairo2-dev package on ubuntu 10.10).
 
-Run 'make fixbuild' the first time you compile. 
-After that 'make' should do the job. 
-If you want to hack on te program you can use 'nake depend' to generate dependencies.
+Then do:
+
+```
+qmake
+make
+```
 
 ## Useage
 
