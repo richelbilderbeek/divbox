@@ -1,5 +1,6 @@
 #testbox
 B 200 350 40 35 #  width length height divheight
+L 1000 # laser cutter dimensions, width x height
 T 6 6 .03 # thickness toothwidth taper
 N test.eps # name
 V 50  #vdiv 50mm from right
