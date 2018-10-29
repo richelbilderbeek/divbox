@@ -9,4 +9,5 @@ script:
   - qmake divbox.pro
   - make
   - ./divbox --help
+  - ./divbox testbox
   
