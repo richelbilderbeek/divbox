@@ -27,6 +27,15 @@ make
 
 ## Useage
 
+Example useage:
+
+```
+divbox testbox
+```
+
+`testbox` is a setup file.
+`divbox` will use that file to create a file called `test.eps`.
+
 ```
 Usage: divbox [file]\n
   Reads a description of a box from a file or stdin and writes an eps file for the lasercutter\n\n
