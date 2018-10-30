@@ -33,7 +33,7 @@ Example useage:
 divbox testbox
 ```
 
-`testbox` is a setup file.
+[testbox](testbox) is a setup file.
 `divbox` will use that file to create a file called `test.eps`.
 
 ```
